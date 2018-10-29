@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Gradient Generator</title>
+  <link rel="stylesheet" href="src/style.css">
+  <script src="src/code.js"></script>
+</head>
+<body>
+
+  <main class="gg-main">
+    <div class="gg-gradient-block" id="gradient-here"></div>
+    <div class="gg-degree-range">
+      <input id="degree-input" type="range" min="0" max="360" step="1" value="50" >
+      <p>Gradient direction : <span id="degree-value"></span> degree</p>
+    </div>
+
+    <ul class="gg-colors-list flex-row">
+      <li class="gg-colors-list__item gg-color-item">
+        <input class="gg-color-item__input" type="color" value="#333">
+      </li>
+      <li class="gg-colors-list__item">
+        <input class="gg-color-item__input" type="color" value="#444">
+      </li>
+    </ul>
+
+    <button class="gg-add-color-btn btn">Add Color</button>
+
+    <div class="gg-toggle flex-row">
+      <h2 id="radial" class="gg-toggle__gradient-type--on">Radial</h2>
+      <button onclick="toggle()" class="gg-toggle__btn toggle-radial"></button>
+      <h2 id="linear" class="gg-toggle__gradient-type--off">Linear</h2>
+
+    </div>
+
+    <button class="gg-get-css-btn btn" >Get CSS!</button>
+
+  </main>
+
+</body>
+</html>
