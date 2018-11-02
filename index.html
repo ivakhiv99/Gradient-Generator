@@ -6,8 +6,8 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS Gradient Generator</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
   <link rel="stylesheet" href="src/style.css">
-  <script src="src/code.js"></script>
 </head>
 <body>
 
@@ -15,19 +15,21 @@
     <div class="gg-gradient-block" id="gradient-here"></div>
     <div class="gg-degree-range">
       <input id="degree-input" type="range" min="0" max="360" step="1" value="50" >
-      <p>Gradient direction : <span id="degree-value"></span> degree</p>
+      <p>Gradient direction : <span id="degree-value">50</span> degree</p>
     </div>
 
-    <ul class="gg-colors-list flex-row">
-      <li class="gg-colors-list__item gg-color-item">
-        <input class="gg-color-item__input" type="color" value="#333">
+    <ul id="gg-colors-list" class="gg-colors-list flex-row">
+      <li class="gg-colors-list__item">
+        <i class="fas fa-times gg-colors-list__remove-btn"></i>
+        <input class="gg-colors-list__input" type="color" value="#cbdaf2">
       </li>
       <li class="gg-colors-list__item">
-        <input class="gg-color-item__input" type="color" value="#444">
+        <i class="fas fa-times gg-colors-list__remove-btn"></i>
+        <input class="gg-colors-list__input" type="color" value="#5191f7">
       </li>
     </ul>
 
-    <button class="gg-add-color-btn btn">Add Color</button>
+    <button onclick="addColor()" class="gg-add-color-btn btn" >Add Color</button>
 
     <div class="gg-toggle flex-row">
       <h2 id="radial" class="gg-toggle__gradient-type--on">Radial</h2>
@@ -39,6 +41,8 @@
     <button class="gg-get-css-btn btn" >Get CSS!</button>
 
   </main>
+
+  <script src="src/code.js"></script>
 
 </body>
 </html>

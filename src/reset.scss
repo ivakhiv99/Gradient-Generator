@@ -130,6 +130,11 @@ a{
   html{
     height: 100%;
   }
+
 *{
   box-sizing: border-box;
+}
+
+input[type=color] {
+  -webkit-appearance: none ;
 }
