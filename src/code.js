@@ -21,23 +21,12 @@ const toggle = () => {
   }
 }
 
-//
 // deegree-value
-// {
-//
-// // document.addEventListener("DOMContentLoaded", function() {
-//   const degreeInput = document.getElementById('degree-input').value;
-//
-//   document.getElementById('degree-input').addEventListener('click', function () { /*mouseup*/
-//     // const degreeVal = document.getElementById('degree-value');
-//     console.log(degreeInput);
-//     // degreeVal.innerHTML = degreeInput.value;
-//   });
-//
-// // });
-//
-//
-// }
+document.getElementById('degree-input').addEventListener('input', function () {
+    const degreeVal = document.getElementById('degree-input').value;
+    const valLable = document.getElementById('degree-value');
+    valLable.textContent = degreeVal;
+  });
 
 const addColor = () => {
   const $colorsList = document.getElementById('gg-colors-list');
@@ -57,6 +46,7 @@ const addColor = () => {
   $colorsList.appendChild($li);
 }
 
+//remove color
 document.addEventListener('click' , event =>  {
   const {target} = event;
   const isRemoveBtn = target.classList.contains('gg-colors-list__remove-btn');
@@ -66,3 +56,22 @@ document.addEventListener('click' , event =>  {
     $list.removeChild($item);
   }
 });
+
+document.addEventListener('mouseup', function () {
+  const $gradientBlock = document.getElementById('gradient-here');
+  const degreeValue = document.getElementById('degree-input').value;
+  const isRadial = document.getElementById('radial').classList.contains('gg-toggle__gradient-type--on');
+  const colors = getColors();
+  // console.log(colors);
+});
+
+
+const getColors = () => {
+  let a =  document.getElementsByClassName('gg-colors-list__input');
+  // return a.map((item) => {
+  //   return item.value;
+  // });
+  console.log(typeof (a));
+   return null;
+}
+
