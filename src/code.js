@@ -62,16 +62,29 @@ document.addEventListener('mouseup', function () {
   const degreeValue = document.getElementById('degree-input').value;
   const isRadial = document.getElementById('radial').classList.contains('gg-toggle__gradient-type--on');
   const colors = getColors();
-  // console.log(colors);
+  // console.log(getGradient({ colors, degreeValue, isRadial}));
+  $gradientBlock.style.backgroundImage = getGradient({ colors, degreeValue, isRadial});
 });
 
+//background-image: radial-gradient(circle, #ff0000, #db5800, #b37700, #8c8900, #669400);
+// linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
 
 const getColors = () => {
-  let a =  document.getElementsByClassName('gg-colors-list__input');
-  // return a.map((item) => {
-  //   return item.value;
-  // });
-  console.log(typeof (a));
-   return null;
+  const colorInputs = Array.from(document.getElementsByClassName('gg-colors-list__input'));
+  return colorInputs.map(item =>{
+    return item.value;
+  });
 }
 
+const getGradient = param => {
+  let gradient = '';
+
+  let gradientType;
+  param.isRadial ? gradientType = 'radial-gradient' : gradientType = 'linear-gradient';
+
+  const colorList = param.colors.join(' , ');
+
+  param.isRadial ? gradient = `${gradientType}( ${colorList} )` : gradient = `${gradientType}( ${param.degreeValue}deg , ${colorList} )`;
+
+  return gradient;
+}
