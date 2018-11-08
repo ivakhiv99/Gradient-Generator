@@ -1,32 +1,36 @@
-// document.addEventListener("DOMContentLoaded" function() {
-//   const colorInputs = document.getElementsByClassName("gg-color-item__input");
-//   const gradientBox =  document.getElementById("gradient-here");
-//   // const colors =
-// });
+ const $gradientBlock = document.getElementById('gradient-here');
 
+ document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('gradient-direction').style.display = 'none';
+  $gradientBlock.style.backgroundImage = setGradient($gradientBlock);
+});
 
 const toggle = () => {
   const $toggleBtn = event.target;
   $toggleBtn.style.outline = 'none';
   const $radial = document.getElementById('radial');
   const $linear = document.getElementById('linear');
+  const $direction = document.getElementById('gradient-direction');
   if ($toggleBtn.classList.contains('toggle-linear')) {
     $toggleBtn.classList.replace('toggle-linear', 'toggle-radial');
     $linear.classList.replace('gg-toggle__gradient-type--on', 'gg-toggle__gradient-type--off');
     $radial.classList.replace('gg-toggle__gradient-type--off', 'gg-toggle__gradient-type--on');
+    $direction.style.display = 'none';
   } else {
     $toggleBtn.classList.replace('toggle-radial', 'toggle-linear');
     $radial.classList.replace('gg-toggle__gradient-type--on', 'gg-toggle__gradient-type--off');
     $linear.classList.replace('gg-toggle__gradient-type--off', 'gg-toggle__gradient-type--on');
+    $direction.style.display = 'block';
   }
+  setGradient($gradientBlock);
 }
 
-// deegree-value
 document.getElementById('degree-input').addEventListener('input', function () {
     const degreeVal = document.getElementById('degree-input').value;
-    const valLable = document.getElementById('degree-value');
-    valLable.textContent = degreeVal;
-  });
+    const $valLable = document.getElementById('degree-value');
+    $valLable.textContent = degreeVal;
+    setGradient($gradientBlock);
+});
 
 const addColor = () => {
   const $colorsList = document.getElementById('gg-colors-list');
@@ -44,10 +48,11 @@ const addColor = () => {
   $li.appendChild($removeBtn);
   $li.appendChild($colorInput);
   $colorsList.appendChild($li);
+  setGradient($gradientBlock);
 }
 
-//remove color
-document.addEventListener('click' , event =>  {
+const colorsList = document.getElementById('gg-colors-list');
+colorsList.addEventListener('click' , event =>  {
   const {target} = event;
   const isRemoveBtn = target.classList.contains('gg-colors-list__remove-btn');
   const $list = target.parentElement.parentElement;
@@ -55,19 +60,31 @@ document.addEventListener('click' , event =>  {
   if (isRemoveBtn){
     $list.removeChild($item);
   }
+  setGradient($gradientBlock);
 });
 
-document.addEventListener('mouseup', function () {
-  const $gradientBlock = document.getElementById('gradient-here');
+const setGradient = whereToSet =>{
+  whereToSet.style.backgroundImage = `${getGradient()}`;
+  console.log(getGradient());
+  // console.log(whereToSet);
+  // $gradientBlock.innerHTML ='';
+}
+
+const getGradient = () => {
   const degreeValue = document.getElementById('degree-input').value;
   const isRadial = document.getElementById('radial').classList.contains('gg-toggle__gradient-type--on');
   const colors = getColors();
-  // console.log(getGradient({ colors, degreeValue, isRadial}));
-  $gradientBlock.style.backgroundImage = getGradient({ colors, degreeValue, isRadial});
-});
 
-//background-image: radial-gradient(circle, #ff0000, #db5800, #b37700, #8c8900, #669400);
-// linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  let gradient = '';
+
+  let gradientType;
+  isRadial ? gradientType = 'radial-gradient' : gradientType = 'linear-gradient';
+
+  const colorList = colors.join(' , ');
+
+  isRadial ? gradient = `${gradientType}( ${colorList} )` : gradient = `${gradientType}( ${degreeValue}deg , ${colorList} )`;
+  return gradient;
+}
 
 const getColors = () => {
   const colorInputs = Array.from(document.getElementsByClassName('gg-colors-list__input'));
@@ -76,15 +93,11 @@ const getColors = () => {
   });
 }
 
-const getGradient = param => {
-  let gradient = '';
-
-  let gradientType;
-  param.isRadial ? gradientType = 'radial-gradient' : gradientType = 'linear-gradient';
-
-  const colorList = param.colors.join(' , ');
-
-  param.isRadial ? gradient = `${gradientType}( ${colorList} )` : gradient = `${gradientType}( ${param.degreeValue}deg , ${colorList} )`;
-
-  return gradient;
+const getCss = () =>{
+  const $back = document.getElementById('main');
+  setGradient($back);
+  $gradientBlock.style.background ='linear-gradient(169deg, #333, #777)';
+  let gradient = getGradient();
+  gradient = `background: -moz-${gradient} background: -webkit-${gradient} background: ${gradient}`;
+  $gradientBlock.innerText = gradient;
 }

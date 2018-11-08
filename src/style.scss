@@ -13,14 +13,30 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  //align-content: space-around;
-  background-color: darkslategrey;
+  background: linear-gradient(169deg, #333, #888);
 }
 
 .gg-gradient-block {
   width: 70%;
   height: 300px;
-  background-color: #444;
+  z-index: 99;
+  font-family: sans-serif, Arial;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px 1px #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2.307692307692308vw;
+
+  @media screen and (max-width: 760px) {
+    font-size: 3.9473684210526314vw;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 150px;
+  }
 }
 
 .gg-degree-range {
@@ -28,12 +44,14 @@
 }
 
 .gg-colors-list {
+  width: 90%;
   margin: 20px 0;
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
+  flex-wrap: wrap;
 
   &__item {
-    margin: 0 10px;
+    margin: 10px;
     border-radius: 50%;
     position: relative;
   }
@@ -69,7 +87,7 @@
 }
 
 .gg-add-color-btn {
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
 }
 
 .gg-toggle {
@@ -78,8 +96,14 @@
   width: 50%;
   max-width: 200px;
   height: 50px;
-  background-color: red;
   margin: 20px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #666;
+
+  @media screen and (max-width: 480px) {
+    width: 250px;
+  }
 
   &__btn {
     width: 50px;
@@ -144,6 +168,8 @@
 .btn {
   padding: 10px 15px;
   border: none;
-  //width: 80px;
-  //height: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 1px #666;
+  outline: none;
 }

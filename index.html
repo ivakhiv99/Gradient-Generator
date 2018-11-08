@@ -11,9 +11,9 @@
 </head>
 <body>
 
-  <main class="gg-main">
+  <main id="main" class="gg-main">
     <div class="gg-gradient-block" id="gradient-here"></div>
-    <div class="gg-degree-range">
+    <div id="gradient-direction" class="gg-degree-range">
       <input id="degree-input" type="range" min="0" max="360" step="1" value="50" >
       <p>Gradient direction : <span id="degree-value">50</span> degree</p>
     </div>
@@ -29,7 +29,7 @@
       </li>
     </ul>
 
-    <button onclick="addColor()" class="gg-add-color-btn btn" >Add Color</button>
+    <button onclick="addColor()" id="toggle-btn" class="gg-add-color-btn btn" >Add Color</button>
 
     <div class="gg-toggle flex-row">
       <h2 id="radial" class="gg-toggle__gradient-type--on">Radial</h2>
@@ -38,11 +38,11 @@
 
     </div>
 
-    <button class="gg-get-css-btn btn" >Get CSS!</button>
+    <button onclick="getCss()" class="gg-get-css-btn btn" >Get CSS!</button>
 
   </main>
 
-  <script src="src/code.js"></script>
+  <script src="src/main.js"></script>
 
 </body>
 </html>

@@ -131,6 +131,9 @@ html {
 input[type=color] {
   -webkit-appearance: none; }
 
+p, h2 {
+  font-family: sans-serif, Arial; }
+
 .flex-row {
   display: flex;
   flex-direction: row; }
@@ -143,22 +146,39 @@ input[type=color] {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  background-color: darkslategrey; }
+  background: linear-gradient(169deg, #333, #888); }
 
 .gg-gradient-block {
   width: 70%;
   height: 300px;
-  background-color: #444; }
+  z-index: 99;
+  font-family: sans-serif, Arial;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px 1px #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2.307692307692308vw; }
+  @media screen and (max-width: 760px) {
+    .gg-gradient-block {
+      font-size: 3.9473684210526314vw; } }
+  @media screen and (max-width: 480px) {
+    .gg-gradient-block {
+      height: 150px; } }
 
 .gg-degree-range {
   margin: 20px 0; }
 
 .gg-colors-list {
+  width: 90%;
   margin: 20px 0;
-  justify-content: space-around;
-  display: flex; }
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap; }
   .gg-colors-list__item {
-    margin: 0 10px;
+    margin: 10px;
     border-radius: 50%;
     position: relative; }
   .gg-colors-list__remove-btn {
@@ -184,7 +204,7 @@ input[type=color] {
       padding: 0; }
 
 .gg-add-color-btn {
-  margin: 20px 0; }
+  margin: 20px 0 10px 0; }
 
 .gg-toggle {
   align-items: center;
@@ -192,8 +212,13 @@ input[type=color] {
   width: 50%;
   max-width: 200px;
   height: 50px;
-  background-color: red;
-  margin: 20px 0; }
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #666; }
+  @media screen and (max-width: 480px) {
+    .gg-toggle {
+      width: 250px; } }
   .gg-toggle__btn {
     width: 50px;
     height: 25px;
@@ -240,6 +265,10 @@ input[type=color] {
 
 .btn {
   padding: 10px 15px;
-  border: none; }
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 1px #666;
+  outline: none; }
 
 /*# sourceMappingURL=style.css.map */
