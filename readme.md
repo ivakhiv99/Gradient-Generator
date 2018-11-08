@@ -2,14 +2,12 @@
 
 Generate CSS code for gradients. Will be useful in frontend development. Allows to create multicolor radial or linear gradients. Adds prefixes for popular browsers
 
----
 
 ## Tech stack
 
 Js , HTML , SCSS
 
-## Teacher github profile
-
+---
 
 ## Front-camp Facebook page
 
@@ -20,5 +18,4 @@ Js , HTML , SCSS
 -https://wireframepro.mockflow.com/view/M77f47ebb0eccd5adaa3046731a9360fa1539632816400 
 
 
-Link to “github” pages or “heroku” 20
 
