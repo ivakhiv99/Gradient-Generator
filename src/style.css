@@ -129,7 +129,8 @@ html {
   box-sizing: border-box; }
 
 input[type=color] {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  outline: none; }
 
 p, h2 {
   font-family: sans-serif, Arial; }
