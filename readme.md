@@ -8,6 +8,9 @@ Generate CSS code for gradients. Will be useful in frontend development. Allows 
 Js , HTML , SCSS
 
 ---
+## Link to github pages
+
+-https://nonameuser1.github.io/Gradient-Generator/
 
 ## Front-camp Facebook page
 

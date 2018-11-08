@@ -65,9 +65,7 @@ colorsList.addEventListener('click' , event =>  {
 
 const setGradient = whereToSet =>{
   whereToSet.style.backgroundImage = `${getGradient()}`;
-  console.log(getGradient());
-  // console.log(whereToSet);
-  // $gradientBlock.innerHTML ='';
+  $gradientBlock.innerHTML ='';
 }
 
 const getGradient = () => {
