@@ -1,4 +1,15 @@
- const $gradientBlock = document.getElementById('gradient-here');
+if('serviceWorker' in navigator){
+  window.addEventListener('load' , () =>{
+    navigator.serviceWorker
+      .register('../service-worker.js')
+      .then(reg => console.log('service worker registreted'))
+      .catch(err => console.log(`error while registrating service worker : ${err}`))
+  });
+}
+
+
+
+const $gradientBlock = document.getElementById('gradient-here');
 
  document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('gradient-direction').style.display = 'none';
