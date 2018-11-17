@@ -1,11 +1,16 @@
-if('serviceWorker' in navigator){
-  window.addEventListener('load' , () =>{
-    navigator.serviceWorker
-      .register('../service-worker.js')
-      .then(reg => console.log('service worker registreted'))
-      .catch(err => console.log(`error while registrating service worker : ${err}`))
-  });
-}
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+import './style.scss';
+
+OfflinePluginRuntime.install();
+
+// if('serviceWorker' in navigator){
+//   window.addEventListener('load' , () =>{
+//     navigator.serviceWorker
+//       .register('../service-worker.js')
+//       .then(reg => console.log('service worker registreted'))
+//       .catch(err => console.log(`error while registrating service worker : ${err}`))
+//   });
+// }
 
 
 
