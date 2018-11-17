@@ -1,12 +1,10 @@
-#language: node_js
-#
-#node_js:
-#- lts/*
-##- latest
-#
-#script:
-##- npm run test
-#- npm run build
+language: node_js
+
+node_js:
+- lts/*
+
+script:
+- npm run build
 
 deploy:
   provider: pages
