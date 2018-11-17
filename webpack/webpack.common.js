@@ -1,8 +1,22 @@
 const path = require('path');
+const OfflinePlugin = require('offline-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
   entry: [
     './src/main.js'
   ],
@@ -24,16 +38,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'style-loader' // creates style nodes from JS strings
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader', // translates CSS into CommonJS
-            query: {
-              modules: true,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
           },
           {
             loader: 'sass-loader' // compiles Sass to CSS
@@ -43,9 +50,15 @@ module.exports = {
     ]
   },
   plugins: [
+    new OfflinePlugin({
+      externals: ['./', 'https://use.fontawesome.com/releases/v5.4.2/css/all.css']
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html')
     }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, '../'),
