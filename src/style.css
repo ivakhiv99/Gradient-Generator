@@ -147,7 +147,7 @@ p, h2 {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  background: linear-gradient(169deg, #737e8e, #d9dddd); }
+  background: linear-gradient(169deg, #blue, #green); }
 
 .gg-gradient-block {
   width: 70%;
