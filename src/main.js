@@ -3,26 +3,15 @@ import './style.scss';
 
 OfflinePluginRuntime.install();
 
-// if('serviceWorker' in navigator){
-//   window.addEventListener('load' , () =>{
-//     navigator.serviceWorker
-//       .register('../service-worker.js')
-//       .then(reg => console.log('service worker registreted'))
-//       .catch(err => console.log(`error while registrating service worker : ${err}`))
-//   });
-// }
+document.addEventListener('DOMContentLoaded', ()=>{
 
-
-
-const $gradientBlock = document.getElementById('gradient-here');
-
- document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('gradient-direction').style.display = 'none';
-  $gradientBlock.style.backgroundImage = setGradient($gradientBlock);
-});
+const $toggleBtn = document.getElementById('toggle-btn');
+const $valLable = document.getElementById('degree-value');
+const $colorsList = document.getElementById('gg-colors-list');
+const $addColorBtn = document.getElementById('add-color-btn');
+const $getCssBtn = document.getElementById('get-css-btn');
 
 const toggle = () => {
-  const $toggleBtn = event.target;
   $toggleBtn.style.outline = 'none';
   const $radial = document.getElementById('radial');
   const $linear = document.getElementById('linear');
@@ -43,13 +32,11 @@ const toggle = () => {
 
 document.getElementById('degree-input').addEventListener('input', function () {
     const degreeVal = document.getElementById('degree-input').value;
-    const $valLable = document.getElementById('degree-value');
     $valLable.textContent = degreeVal;
     setGradient($gradientBlock);
 });
 
 const addColor = () => {
-  const $colorsList = document.getElementById('gg-colors-list');
 
   const $li = document.createElement('li');
   $li.classList.add('gg-colors-list__item');
@@ -115,3 +102,15 @@ const getCss = () =>{
   gradient = `background: -moz-${gradient} background: -webkit-${gradient} background: ${gradient}`;
   $gradientBlock.innerText = gradient;
 }
+
+  const $gradientBlock = document.getElementById('gradient-here');
+
+  // document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('gradient-direction').style.display = 'none';
+  $gradientBlock.style.backgroundImage = setGradient($gradientBlock);
+// });
+
+  $toggleBtn.addEventListener('click' , ()=>toggle());
+  $addColorBtn.addEventListener('click', ()=>addColor());
+  $getCssBtn.addEventListener('click', ()=>getCss());
+});
