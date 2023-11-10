@@ -14,7 +14,7 @@ Js , HTML , SCSS
 
 ## Link to github pages
 
--https://ivahiv99.github.io/Gradient-Generator/
+-https://ivakhiv99.github.io/Gradient-Generator/
 
 ## Front-camp Facebook page
 
